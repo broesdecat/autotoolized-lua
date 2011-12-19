@@ -9,27 +9,10 @@ AM_INIT_AUTOMAKE([1.9 foreign])
 AC_PROG_CC
 AC_PROG_LIBTOOL
 
-AC_ARG_WITH(
-  [readline],
-  [AC_HELP_STRING([--with-readline], [Use readline for interpreter input [default=yes]])],
-  [use_readline=$withval],
-  [use_readline=yes]
-)
-
 LUA_LIBS="-lm"
 
 # Check for readline
 READLINE_DEFS="#undef LUA_USE_READLINE"
-if test "x$use_readline" == "xyes"; then
-  AC_CHECK_LIB([readline], [readline], [], [use_readline=no], [-lncurses])
-  AC_CHECK_HEADERS([readline/readline.h readline/history.h], [], [use_readline=no])
-  if test "x$use_readline" == "xno"; then
-    AC_MSG_WARN([readline headers could not be found, disabling readline support])
-  else
-    READLINE_DEFS="#define LUA_USE_READLINE"
-    LUA_LIBS="$LUA_LIBS -lreadline -lncurses"
-  fi
-fi
 AC_SUBST(READLINE_DEFS)
 
 case "$host" in
@@ -37,6 +20,8 @@ case "$host" in
   *-darwin*) use_os=macosx ;;
   *)         use_os=posix  ;;
 esac
+
+echo "$use_os"
 
 POSIX_DEFS="#undef LUA_USE_POSIX"
 LUA_DL_DEFS="#undef LUA_USE_DLOPEN"
