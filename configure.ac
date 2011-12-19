@@ -29,13 +29,6 @@ LUA_BUILD_AS_DLL_DEFS="#undef LUA_BUILD_AS_DLL"
 
 if test "x$use_os" == "xwin32"; then
   LUA_BUILD_AS_DLL_DEFS="#define LUA_BUILD_AS_DLL"
-elif test "x$use_os" == "xmacosx"; then
-  POSIX_DEFS="#define LUA_USE_POSIX"
-  LUA_DL_DEFS="#define LUA_DL_DYLD"
-elif test "x$use_os" == "xposix"; then
-  POSIX_DEFS="#define LUA_USE_POSIX"
-  LUA_DL_DEFS="#define LUA_DL_DLOPEN"
-  LUA_LIBS="$LUA_LIBS -ldl"
 fi
 AC_SUBST(POSIX_DEFS)
 AC_SUBST(LUA_DL_DEFS)
