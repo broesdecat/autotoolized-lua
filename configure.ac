@@ -21,8 +21,6 @@ case "$host" in
   *)         use_os=posix  ;;
 esac
 
-echo "$use_os"
-
 POSIX_DEFS="#undef LUA_USE_POSIX"
 LUA_DL_DEFS="#undef LUA_USE_DLOPEN"
 LUA_BUILD_AS_DLL_DEFS="#undef LUA_BUILD_AS_DLL"
