@@ -57,13 +57,13 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}
 #
 # Lua library.
 #
-if(BUILD_STATIC)
+if(STATIC_LUA)
 	add_library(lua STATIC ${LUA_CORE_SRC})
 	add_target_properties(lua COMPILE_FLAGS "${COMMON_CFLAGS}")
 	add_target_properties(lua LINK_FLAGS "${LD_FLAGS} ${COMMON_LDFLAGS}")
 	set(LUA_STATIC_LIB lua)
 	set(LUA_LIBS lua)
-else(BUILD_STATIC)
+else(STATIC_LUA)
 	add_library(lua_static STATIC ${LUA_CORE_SRC})
 	add_target_properties(lua_static COMPILE_FLAGS "${COMMON_CFLAGS}")
 	add_target_properties(lua_static LINK_FLAGS "${LD_FLAGS} ${COMMON_LDFLAGS}")
@@ -74,7 +74,7 @@ else(BUILD_STATIC)
 	add_target_properties(lua LINK_FLAGS "${LD_FLAGS} ${COMMON_LDFLAGS}")
 
 	set(LUA_LIBS lua_static lua)
-endif(BUILD_STATIC)
+endif(STATIC_LUA)
 
 set_target_properties(
 	${LUA_LIBS} PROPERTIES
