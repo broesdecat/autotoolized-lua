@@ -16,6 +16,8 @@ enable_testing()
 
 option(BUILD_STATIC "build static library" OFF)
 
+message(STATUS "static lua: ${BUILD_STATIC}")
+
 option(LUA_USE_DLOPEN "Enable dlopen support.")
 option(LUA_USE_ISATTY "Enable isatty support.")
 option(LUA_USE_READLINE "Enable readline support.")
