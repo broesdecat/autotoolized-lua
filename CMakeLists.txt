@@ -14,9 +14,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 enable_testing()
 
-option(BUILD_STATIC "build static library" OFF)
+option(STATIC_LUA "build static library" OFF)
 
-message(STATUS "static lua: ${BUILD_STATIC}")
+message(STATUS "static lua: ${STATIC_LUA}")
 
 option(LUA_USE_DLOPEN "Enable dlopen support.")
 option(LUA_USE_ISATTY "Enable isatty support.")
