@@ -83,17 +83,9 @@ set_target_properties(
 )
 
 #
-# Lua compiler
-#
-add_executable(luac luac.c print.c)
-add_target_properties(luac COMPILE_FLAGS "${COMMON_CFLAGS}")
-add_target_properties(luac LINK_FLAGS "${LD_FLAGS} ${COMMON_LDFLAGS}")
-target_link_libraries(luac ${LUA_STATIC_LIB})
-
-#
 # install lua/luac & library.
 #
-install(TARGETS luac ${LUA_LIBS}
+install(TARGETS ${LUA_LIBS}
 		RUNTIME DESTINATION bin
 		LIBRARY DESTINATION lib
 		ARCHIVE DESTINATION lib
