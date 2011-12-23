@@ -75,6 +75,7 @@ else(BUILD_STATIC)
 
 	set(LUA_LIBS lua_static lua)
 endif(BUILD_STATIC)
+
 set_target_properties(
 	${LUA_LIBS} PROPERTIES
 	VERSION ${LUA_VERSION}

@@ -4,17 +4,17 @@ project (lua C)
 SET(BUILD_SHARED_LIBS ON)
 
 if(${CMAKE_BUILD_TYPE} MATCHES "Debug")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 -ggdb")	
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 -ggdb")	
 endif()
-if(${CMAKE_BUILD_TYPE} MATCHES "Release")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3")
+	if(${CMAKE_BUILD_TYPE} MATCHES "Release")
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3")
 endif()
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 enable_testing()
 
-option(BUILD_STATIC "build static library" ON)
+option(BUILD_STATIC "build static library" OFF)
 
 option(LUA_USE_DLOPEN "Enable dlopen support.")
 option(LUA_USE_ISATTY "Enable isatty support.")
