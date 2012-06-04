@@ -14,35 +14,35 @@ macro(add_target_properties _target _name)
 endmacro(add_target_properties)
 
 set(LUA_CORE_SRC
-	lapi.c
-	lauxlib.c
-	lbaselib.c
-	lcode.c
-	ldblib.c
-	ldebug.c
-	ldo.c
-	ldump.c
-	lfunc.c
-	lgc.c
-	linit.c
-	liolib.c
-	llex.c
-	lmathlib.c
-	lmem.c
-	loadlib.c
-	lobject.c
-	lopcodes.c
-	loslib.c
-	lparser.c
-	lstate.c
-	lstring.c
-	lstrlib.c
-	ltable.c
-	ltablib.c
-	ltm.c
-	lundump.c
-	lvm.c
-	lzio.c
+	lapi.cpp
+	lauxlib.cpp
+	lbaselib.cpp
+	lcode.cpp
+	ldblib.cpp
+	ldebug.cpp
+	ldo.cpp
+	ldump.cpp
+	lfunc.cpp
+	lgc.cpp
+	linit.cpp
+	liolib.cpp
+	llex.cpp
+	lmathlib.cpp
+	lmem.cpp
+	loadlib.cpp
+	lobject.cpp
+	lopcodes.cpp
+	loslib.cpp
+	lparser.cpp
+	lstate.cpp
+	lstring.cpp
+	lstrlib.cpp
+	ltable.cpp
+	ltablib.cpp
+	ltm.cpp
+	lundump.cpp
+	lvm.cpp
+	lzio.cpp
 )
 set(LUA_LIB_HEADERS
 	lua.h
