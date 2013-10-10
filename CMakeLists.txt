@@ -3,18 +3,24 @@ project (lua CXX)
 
 SET(BUILD_SHARED_LIBS ON)
 
+option(STATIC_LUA "build static library" OFF)
+
 if(${CMAKE_BUILD_TYPE} MATCHES "Debug")
 	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 -ggdb")	
 endif()
-	if(${CMAKE_BUILD_TYPE} MATCHES "Release")
+if(${CMAKE_BUILD_TYPE} MATCHES "Release")
 	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3")
+endif()
+if(${CMAKE_BUILD_TYPE} MATCHES "^StaticRelease$")
+    set(STATIC_LUA ON)
+endif()
+if(${CMAKE_BUILD_TYPE} MATCHES "^StaticDebug$")
+    set(STATIC_LUA ON)
 endif()
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 enable_testing()
-
-option(STATIC_LUA "build static library" OFF)
 
 message(STATUS "static lua: ${STATIC_LUA}")
 
